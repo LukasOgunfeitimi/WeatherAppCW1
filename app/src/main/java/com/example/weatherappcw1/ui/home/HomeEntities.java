@@ -12,6 +12,7 @@ public class HomeEntities {
     public TextView Temp;
     public TextView Condition;
     public TextView ExtraInfo;
+    public TextView TimeUpdate;
     public HomeEntities(View activity) {
         this.ExtraInfo = activity.findViewById(R.id.ExtraInfo);
         this.LocationCountry = activity.findViewById(R.id.LocationCountry);
@@ -19,7 +20,7 @@ public class HomeEntities {
         this.LocationRegion = activity.findViewById(R.id.LocationRegion);
         this.Temp = activity.findViewById(R.id.Temp);
         this.Condition = activity.findViewById(R.id.Condition);
-
+        this.TimeUpdate = activity.findViewById(R.id.TimeUpdate);
     }
 
     public void SetTemp(Double Temp) {

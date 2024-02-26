@@ -1,5 +1,7 @@
 package com.example.weatherappcw1.ui.home;
 
+import java.util.Date;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +24,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     public ViewGroup main;
-    public HomeEntities homeEntities;
+    public HomeEntities HomeEntities;
     public WeatherData info;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,20 +36,18 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle s) {
         super.onViewCreated(view, s);
-
-        homeEntities = new HomeEntities(view);
-
+        HomeEntities = new HomeEntities(view);
         start();
 
         Switch DegreeType = (Switch)view.findViewById(R.id.DegreeType);
         DegreeType.setOnCheckedChangeListener((buttonView, UseFahrenheit) -> {
-            if (UseFahrenheit) homeEntities.SetTemp(info.current.temp_f);
-            else homeEntities.SetTemp(info.current.temp_c);
+            if (UseFahrenheit) HomeEntities.SetTemp(info.current.temp_f);
+            else HomeEntities.SetTemp(info.current.temp_c);
         });
     }
 
     void start() {
-        WeatherOperation WeatherOp = new WeatherOperation("autodetect");
+        WeatherOperation WeatherOp = new WeatherOperation("autodetect",1);
         WeatherOp.execute();
 
         try {
@@ -64,14 +64,14 @@ public class HomeFragment extends Fragment {
     void UpdateInfo(WeatherData WeatherInfo) {
         main.setBackgroundColor(WeatherColors.GetWeatherInHex(WeatherInfo.current.condition.text));
 
-        homeEntities.LocationCountry.setText(WeatherInfo.location.country);
-        homeEntities.LocationName.setText(WeatherInfo.location.name);
-        homeEntities.LocationRegion.setText(WeatherInfo.location.region);
-        homeEntities.Temp.setText(Double.toString(WeatherInfo.current.temp_c) + "°");
-        homeEntities.Condition.setText(WeatherInfo.current.condition.text);
+        HomeEntities.LocationCountry.setText(WeatherInfo.location.country);
+        HomeEntities.LocationName.setText(WeatherInfo.location.name);
+        HomeEntities.LocationRegion.setText(WeatherInfo.location.region);
+        HomeEntities.Temp.setText(Double.toString(WeatherInfo.current.temp_c) + "°");
+        HomeEntities.Condition.setText(WeatherInfo.current.condition.text);
+        HomeEntities.TimeUpdate.setText(new Date().toString());
 
         String ExtraInfo = "";
-
         ExtraInfo += "Wind (MPH): " + WeatherInfo.current.wind_mph + "\n";
         ExtraInfo += "Wind (Degree): " + WeatherInfo.current.wind_degree + "\n";
         ExtraInfo += "Wind (Direction): " + WeatherInfo.current.wind_dir + "\n";
@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
         ExtraInfo += "Feels Like (C): " + WeatherInfo.current.feelslike_c + "\n";
         ExtraInfo += "Gust (MPH): " + WeatherInfo.current.gust_mph + "\n";
 
-        homeEntities.ExtraInfo.setText(ExtraInfo);
+        HomeEntities.ExtraInfo.setText(ExtraInfo);
     }
     @Override
     public void onDestroyView() {
