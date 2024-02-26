@@ -1,17 +1,18 @@
-package com.example.weatherappcw1;
+package com.example.weatherappcw1.ui.home;
 
-import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-public class Entities {
+
+import com.example.weatherappcw1.R;
+
+public class HomeEntities {
     public TextView LocationCountry;
     public TextView LocationName;
     public TextView LocationRegion ;
     public TextView Temp;
     public TextView Condition;
     public TextView ExtraInfo;
-    public Entities(View activity) {
+    public HomeEntities(View activity) {
         this.ExtraInfo = activity.findViewById(R.id.ExtraInfo);
         this.LocationCountry = activity.findViewById(R.id.LocationCountry);
         this.LocationName = activity.findViewById(R.id.LocationName);

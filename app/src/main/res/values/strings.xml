@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">WeatherAppCW1</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_forecast">Forecast</string>
+    <string name="title_search">Search</string>
+    <string name="title_about">About</string>
 </resources>

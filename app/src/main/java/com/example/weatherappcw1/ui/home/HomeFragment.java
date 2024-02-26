@@ -5,66 +5,49 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Switch;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.weatherappcw1.R;
 import com.example.weatherappcw1.Weather.WeatherColors;
 import com.example.weatherappcw1.Weather.WeatherOperation;
-import com.example.weatherappcw1.databinding.ActivityMainBinding;
 import com.example.weatherappcw1.databinding.FragmentHomeBinding;
 
-import com.example.weatherappcw1.Entities;
 import com.example.weatherappcw1.Weather.WeatherData;
 
-import com.example.weatherappcw1.MainActivity;
 import com.google.gson.Gson;
-
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-
-    public MainActivity test;
     public ViewGroup main;
-    public Entities entities;
+    public HomeEntities homeEntities;
     public WeatherData info;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         main = container;
-        return root;
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle s) {
         super.onViewCreated(view, s);
 
-        entities = new Entities(view);
+        homeEntities = new HomeEntities(view);
 
         start();
 
         Switch DegreeType = (Switch)view.findViewById(R.id.DegreeType);
         DegreeType.setOnCheckedChangeListener((buttonView, UseFahrenheit) -> {
-            if (UseFahrenheit) entities.SetTemp(info.current.temp_f);
-            else entities.SetTemp(info.current.temp_c);
+            if (UseFahrenheit) homeEntities.SetTemp(info.current.temp_f);
+            else homeEntities.SetTemp(info.current.temp_c);
         });
     }
-    void start() {
-        start("autodetect");
-    }
 
-    void start(String Location) {
-        WeatherOperation WeatherOp = new WeatherOperation(Location);
+    void start() {
+        WeatherOperation WeatherOp = new WeatherOperation("autodetect");
         WeatherOp.execute();
 
         try {
@@ -81,11 +64,11 @@ public class HomeFragment extends Fragment {
     void UpdateInfo(WeatherData WeatherInfo) {
         main.setBackgroundColor(WeatherColors.GetWeatherInHex(WeatherInfo.current.condition.text));
 
-        binding.LocationCountry.setText(WeatherInfo.location.country);
-        binding.LocationName.setText(WeatherInfo.location.name);
-        binding.LocationRegion.setText(WeatherInfo.location.region);
-        binding.Temp.setText(Double.toString(WeatherInfo.current.temp_c) + "°");
-        binding.Condition.setText(WeatherInfo.current.condition.text);
+        homeEntities.LocationCountry.setText(WeatherInfo.location.country);
+        homeEntities.LocationName.setText(WeatherInfo.location.name);
+        homeEntities.LocationRegion.setText(WeatherInfo.location.region);
+        homeEntities.Temp.setText(Double.toString(WeatherInfo.current.temp_c) + "°");
+        homeEntities.Condition.setText(WeatherInfo.current.condition.text);
 
         String ExtraInfo = "";
 
@@ -99,7 +82,7 @@ public class HomeFragment extends Fragment {
         ExtraInfo += "Feels Like (C): " + WeatherInfo.current.feelslike_c + "\n";
         ExtraInfo += "Gust (MPH): " + WeatherInfo.current.gust_mph + "\n";
 
-        binding.ExtraInfo.setText(ExtraInfo);
+        homeEntities.ExtraInfo.setText(ExtraInfo);
     }
     @Override
     public void onDestroyView() {
