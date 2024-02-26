@@ -67,7 +67,7 @@
         android:id="@+id/Condition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         android:text="..."
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,18 +90,20 @@
         android:id="@+id/DetailedInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="304dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Detailed Information:"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Condition"
+        app:layout_constraintVertical_bias="0.194" />
 
     <TextView
         android:id="@+id/ExtraInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DetailedInfo" />
 
