@@ -1,8 +1,11 @@
 package com.example.weatherappcw1.Weather;
 
+import java.util.List;
+
 public class WeatherData {
     public LocationData location;
     public CurrentData current;
+    public ForecastData forecast;
 
     public static class LocationData {
         public String name;
@@ -45,5 +48,16 @@ public class WeatherData {
         public String text;
         public String icon;
         public int code;
+    }
+
+    public static class ForecastData {
+        public List<ForecastDayData> forecastday;
+    }
+    public static class ForecastDayData {
+        public String date;
+        public ForecastSpecificDay day;
+    }
+    public static class ForecastSpecificDay {
+        public String avgtemp_c;
     }
 }

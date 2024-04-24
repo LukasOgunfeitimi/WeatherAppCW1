@@ -11,14 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.weatherappcw1.Weather.WeatherData;
 import com.example.weatherappcw1.Weather.WeatherOperation;
 import com.example.weatherappcw1.databinding.FragmentForecastBinding;
+
+import com.google.gson.Gson;
+
+import java.util.List;
 
 public class ForecastFragment extends Fragment {
 
     private FragmentForecastBinding binding;
     public ViewGroup main;
     public ForecastEntities ForecastEntities;
+    public WeatherData info;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,10 +46,22 @@ public class ForecastFragment extends Fragment {
 
         try {
             String response = WeatherOp.get();
-            System.out.println(response);
+
+            Gson gson = new Gson();
+            info = gson.fromJson(response, WeatherData.class);
+
+
+            updateInfo(info);
+
         } catch (Exception e) {e.printStackTrace();}
     }
 
+    void updateInfo(WeatherData WeatherInfo) {
+        List<WeatherData.ForecastDayData> forecastdays = WeatherInfo.forecast.forecastday;
+        for (int i = 0; i < forecastdays.size(); i++) {
+            System.out.println(forecastdays.get(i).date);
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
