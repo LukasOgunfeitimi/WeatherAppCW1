@@ -24,7 +24,7 @@ public class WeatherOperation extends AsyncTask<Void, Void, String> {
                 this.EndPoint = Base + "current.json?key=" + this.APIKEY + "&q=" + this.location + "&aqi=";
                 break;
             case 2:
-                this.EndPoint = Base + "forecast.json?key=" + this.APIKEY + "&q=" + location + "&days=5&aqi=";
+                this.EndPoint = Base + "forecast.json?key=" + this.APIKEY + "&q=" + location + "&days=3&aqi=";
                 break;
             case 3:
                 this.EndPoint = Base + "search.json?key=" + this.APIKEY + "&q=" + location + "&aqi=";

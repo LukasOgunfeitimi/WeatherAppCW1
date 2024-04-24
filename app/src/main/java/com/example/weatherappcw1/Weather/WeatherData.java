@@ -51,7 +51,7 @@ public class WeatherData {
     }
 
     public static class ForecastData {
-        public List<ForecastDayData> forecastday;
+        public ForecastDayData[] forecastday;
     }
     public static class ForecastDayData {
         public String date;

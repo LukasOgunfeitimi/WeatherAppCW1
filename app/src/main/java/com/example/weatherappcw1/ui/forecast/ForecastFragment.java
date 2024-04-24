@@ -26,6 +26,7 @@ public class ForecastFragment extends Fragment {
     public ForecastEntities ForecastEntities;
     public WeatherData info;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentForecastBinding.inflate(inflater, container, false);
@@ -37,6 +38,7 @@ public class ForecastFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle s) {
         super.onViewCreated(view, s);
         ForecastEntities = new ForecastEntities(view);
+
         start();
     }
 
@@ -57,9 +59,15 @@ public class ForecastFragment extends Fragment {
     }
 
     void updateInfo(WeatherData WeatherInfo) {
-        List<WeatherData.ForecastDayData> forecastdays = WeatherInfo.forecast.forecastday;
-        for (int i = 0; i < forecastdays.size(); i++) {
-            System.out.println(forecastdays.get(i).date);
+        WeatherData.ForecastDayData[] forecastdays = WeatherInfo.forecast.forecastday;
+        String day;
+        String averageTemp;
+        for (int i = 0; i < forecastdays.length; i++) {
+            WeatherData.ForecastDayData date = forecastdays[i];
+            day = date.date.split("-")[2];
+            averageTemp = date.day.avgtemp_c;
+            ForecastEntities.AllTextViews[i].setText(day);
+            ForecastEntities.AllTextViews[i + 3].setText(averageTemp);
         }
     }
     @Override
