@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <TextView
         android:id="@+id/LocationRegion"
@@ -48,55 +48,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LocationName"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintVertical_bias="0.033" />
 
     <TextView
         android:id="@+id/Temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="--°"
-        android:textSize="75dp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LocationRegion"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <TextView
         android:id="@+id/Temp2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="--°"
-        android:textSize="75dp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LocationRegion"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <TextView
         android:id="@+id/Temp3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="--°"
-        android:textSize="75dp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LocationRegion"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.44" />
 
     <TextView
         android:id="@+id/Condition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="48dp"
         android:text="..."
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Temp" />
 
@@ -104,7 +104,7 @@
         android:id="@+id/Condition2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="48dp"
         android:text="..."
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,11 +116,11 @@
         android:id="@+id/Condition3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="48dp"
         android:text="..."
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Temp3" />
 
@@ -144,5 +144,19 @@
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="3 day forecast"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/Temp2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LocationRegion"
+        app:layout_constraintVertical_bias="0.067" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

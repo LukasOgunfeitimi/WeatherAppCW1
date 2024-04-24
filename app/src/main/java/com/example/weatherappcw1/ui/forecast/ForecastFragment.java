@@ -1,5 +1,6 @@
 package com.example.weatherappcw1.ui.forecast;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,23 +53,37 @@ public class ForecastFragment extends Fragment {
             Gson gson = new Gson();
             info = gson.fromJson(response, WeatherData.class);
 
-
             updateInfo(info);
 
         } catch (Exception e) {e.printStackTrace();}
     }
 
+    @SuppressLint("SetTextI18n")
     void updateInfo(WeatherData WeatherInfo) {
         WeatherData.ForecastDayData[] forecastdays = WeatherInfo.forecast.forecastday;
+
+        ForecastEntities.LocationCountry.setText(WeatherInfo.location.country);
+        ForecastEntities.LocationName.setText(WeatherInfo.location.name);
+        ForecastEntities.LocationRegion.setText(WeatherInfo.location.region);
+
         String day;
         String averageTemp;
         for (int i = 0; i < forecastdays.length; i++) {
             WeatherData.ForecastDayData date = forecastdays[i];
             day = date.date.split("-")[2];
-            averageTemp = date.day.avgtemp_c;
-            ForecastEntities.AllTextViews[i].setText(day);
+            averageTemp = date.day.avgtemp_c + "°C";
+            ForecastEntities.AllTextViews[i].setText(day + getOrdinal(day));
             ForecastEntities.AllTextViews[i + 3].setText(averageTemp);
         }
+    }
+    String getOrdinal(String data) {
+        switch (data.charAt(data.length() - 1)) {
+            case '1':
+                return "st";
+            case '2':
+                return "nd";
+        }
+        return "th";
     }
     @Override
     public void onDestroyView() {
