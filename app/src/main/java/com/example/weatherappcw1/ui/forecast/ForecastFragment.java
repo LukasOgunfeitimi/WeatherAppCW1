@@ -58,7 +58,6 @@ public class ForecastFragment extends Fragment {
         } catch (Exception e) {e.printStackTrace();}
     }
 
-    @SuppressLint("SetTextI18n")
     void updateInfo(WeatherData WeatherInfo) {
         WeatherData.ForecastDayData[] forecastdays = WeatherInfo.forecast.forecastday;
 
