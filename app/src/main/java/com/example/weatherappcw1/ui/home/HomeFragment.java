@@ -11,6 +11,7 @@ import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.weatherappcw1.MainActivity;
 import com.example.weatherappcw1.R;
 import com.example.weatherappcw1.Weather.WeatherColors;
 import com.example.weatherappcw1.Weather.WeatherOperation;
@@ -27,9 +28,14 @@ public class HomeFragment extends Fragment {
     public HomeEntities HomeEntities;
     public WeatherData info;
 
+    public String customQuery = "";
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         main = container;
+
+        Bundle arguments = getArguments();
+        if (arguments != null) customQuery = arguments.getString("query");
+
         return binding.getRoot();
     }
 
@@ -47,7 +53,15 @@ public class HomeFragment extends Fragment {
     }
 
     void start() {
-        WeatherOperation WeatherOp = new WeatherOperation("autodetect",1);
+        String query = "auto:ip";
+        if (!customQuery.equals("")) {
+            MainActivity main = (MainActivity)getActivity();
+            assert main != null;
+            main.location = customQuery;
+            query = customQuery;
+        }
+
+        WeatherOperation WeatherOp = new WeatherOperation(query,1);
         WeatherOp.execute();
 
         try {

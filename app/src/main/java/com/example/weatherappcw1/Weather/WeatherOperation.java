@@ -13,7 +13,7 @@ public class WeatherOperation extends AsyncTask<Void, Void, String> {
     private final String APIKEY = "909ca5dbb1a8401f834122709242002";
     private String location;
 
-    public WeatherOperation(String location, int type) {
+    public  WeatherOperation(String location, int type) {
         super();
 
         String Base = "https://api.weatherapi.com/v1/";
@@ -21,7 +21,7 @@ public class WeatherOperation extends AsyncTask<Void, Void, String> {
         switch (type) {
             case 1:
                 this.location = "auto:ip"; // This will get the current location of the user according to the API
-                this.EndPoint = Base + "current.json?key=" + this.APIKEY + "&q=" + this.location + "&aqi=";
+                this.EndPoint = Base + "current.json?key=" + this.APIKEY + "&q=" + location + "&aqi=";
                 break;
             case 2:
                 this.EndPoint = Base + "forecast.json?key=" + this.APIKEY + "&q=" + location + "&days=3&aqi=";

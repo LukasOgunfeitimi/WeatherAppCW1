@@ -44,10 +44,9 @@ public class SearchFragment extends Fragment {
         SearchView search = view.findViewById(R.id.Search);
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Navigation.findNavController(view).navigate(R.id.search_to_home);
+                SearchForQuery(view, query);
                 return false;
             }
 
@@ -57,6 +56,17 @@ public class SearchFragment extends Fragment {
                 return false;
             }
         });
+    }
+
+    /**
+     TODO: create hidden text view
+     push query to that text view
+     retrieve in homefragment and make weather call
+     */
+    void SearchForQuery(View view, String query) {
+        Bundle bundle = new Bundle();
+        bundle.putString("query", query);
+        Navigation.findNavController(view).navigate(R.id.search_to_home, bundle);
     }
     @Override
     public void onDestroyView() {

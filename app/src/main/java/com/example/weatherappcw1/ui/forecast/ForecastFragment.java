@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.weatherappcw1.MainActivity;
 import com.example.weatherappcw1.Weather.WeatherData;
 import com.example.weatherappcw1.Weather.WeatherOperation;
 import com.example.weatherappcw1.databinding.FragmentForecastBinding;
@@ -44,7 +45,10 @@ public class ForecastFragment extends Fragment {
     }
 
     void start() {
-        WeatherOperation WeatherOp = new WeatherOperation("auto:ip", 2);
+        MainActivity main = (MainActivity) getActivity();
+        assert main != null;
+        String location = main.location;
+        WeatherOperation WeatherOp = new WeatherOperation(location, 2);
         WeatherOp.execute();
 
         try {

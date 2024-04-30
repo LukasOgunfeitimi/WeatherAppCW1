@@ -30,6 +30,7 @@ Home Search Hourly 10day About
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    public String location = "auto:ip";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
