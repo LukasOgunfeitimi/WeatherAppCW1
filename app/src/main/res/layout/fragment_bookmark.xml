@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.bookmark.BookmarkFragment">
+
+    <Button
+        android:id="@+id/bookmark1"
+        android:layout_width="295dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="176dp"
+        android:text="Bookmark 1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bookmark2"
+        android:layout_width="295dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:text="Bookmark 2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookmark1" />
+
+    <Button
+        android:id="@+id/bookmark3"
+        android:layout_width="295dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:text="Bookmark 3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookmark2" />
+
+    <Button
+        android:id="@+id/bookmark4"
+        android:layout_width="295dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:text="Bookmark 4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookmark3" />
+
+    <Button
+        android:id="@+id/bookmark5"
+        android:layout_width="295dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:text="Bookmark 5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookmark4" />
+
+    <SearchView
+        android:layout_width="342dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="96dp"
+        android:id="@+id/bookmark_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add bookmark"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="41dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

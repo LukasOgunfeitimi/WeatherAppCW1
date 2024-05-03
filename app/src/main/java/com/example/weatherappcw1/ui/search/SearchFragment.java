@@ -52,17 +52,11 @@ public class SearchFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                System.out.println(newText);
                 return false;
             }
         });
     }
 
-    /**
-     TODO: create hidden text view
-     push query to that text view
-     retrieve in homefragment and make weather call
-     */
     void SearchForQuery(View view, String query) {
         Bundle bundle = new Bundle();
         bundle.putString("query", query);

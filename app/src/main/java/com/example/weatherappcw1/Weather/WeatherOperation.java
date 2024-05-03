@@ -40,17 +40,15 @@ public class WeatherOperation extends AsyncTask<Void, Void, String> {
 
         try {
             URL url = new URL(this.EndPoint);
-
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
             String line;
             while ((line = reader.readLine()) != null) {
                 response.append(line);
             }
-            reader.close();
 
+            reader.close();
             connection.disconnect();
 
         } catch (Exception e) {

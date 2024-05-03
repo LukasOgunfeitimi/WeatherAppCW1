@@ -28,6 +28,15 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_bookmark"
+        android:name="com.example.weatherappcw1.ui.bookmark.BookmarkFragment"
+        android:label="@string/title_bookmark"
+        tools:layout="@layout/fragment_bookmark" />
+    <action
+        android:id="@+id/bookmark_to_home"
+        app:destination="@id/navigation_home"/>
+
+    <fragment
         android:id="@+id/navigation_about"
         android:name="com.example.weatherappcw1.ui.about.AboutFragment"
         android:label="@string/title_about"
