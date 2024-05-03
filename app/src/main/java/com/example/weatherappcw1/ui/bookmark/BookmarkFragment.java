@@ -2,6 +2,8 @@ package com.example.weatherappcw1.ui.bookmark;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import com.example.weatherappcw1.R;
 import java.util.Arrays;
 
 public class BookmarkFragment extends Fragment {
+    public static final String SHARED = "PRE";
     private View currentView;
     public static BookmarkFragment newInstance() {
         return new BookmarkFragment();
@@ -29,25 +32,35 @@ public class BookmarkFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         currentView = inflater.inflate(R.layout.fragment_bookmark, container, false);
-        if (savedInstanceState == null) return currentView;
-        setButtonTexts(savedInstanceState.getStringArray("buttonTexts"));
+        setButtonTexts();
         return currentView;
+    }
+
+    void storePre() {
+        SharedPreferences sp = getActivity().getSharedPreferences(SHARED, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        String[] texts = getButtonTexts();
+        for (int i = 0; i < texts.length; i++) {
+            edit.putString("bookmark" + i, texts[i]);
+        }
+        edit.apply();
     }
 
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-
-        String[] buttonTexts = getButtonTexts();
-        System.out.println(Arrays.toString(buttonTexts));
-        outState.putStringArray("buttonTexts", buttonTexts);
+        storePre();
     }
-    void setButtonTexts(String[] buttonTexts) {
+    void setButtonTexts() {
+        SharedPreferences sp = getActivity().getSharedPreferences(SHARED, Context.MODE_PRIVATE);
+        if (sp == null) return;
         Button button;
-        for (int i = 0; i < buttonTexts.length; i++) {
+        String buttonText;
+        for (int i = 0; i < ButtonIDs.length; i++) {
             button = currentView.findViewById(ButtonIDs[i]);
-            button.setText(buttonTexts[i]);
+            buttonText = sp.getString("bookmark" + i, "Bookmark " + i);
+            button.setText(buttonText);
         }
     }
     String[] getButtonTexts() {
@@ -101,6 +114,7 @@ public class BookmarkFragment extends Fragment {
         }
         return view.findViewById(ButtonIDs[0]);
     }
+
     void setButtons(View view) {
         Button button;
         for (int buttonID : ButtonIDs) {
@@ -114,6 +128,7 @@ public class BookmarkFragment extends Fragment {
 
                     Bundle bundle = new Bundle();
                     bundle.putString("query", (String) finalButton.getText());
+                    storePre();
                     Navigation.findNavController(view).navigate(R.id.bookmark_to_home, bundle);
                 }
             });
