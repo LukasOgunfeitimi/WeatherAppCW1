@@ -22,7 +22,6 @@ import com.example.weatherappcw1.Weather.WeatherData;
 import com.google.gson.Gson;
 
 public class HomeFragment extends Fragment {
-
     private FragmentHomeBinding binding;
     public ViewGroup main;
     public HomeEntities HomeEntities;
@@ -69,8 +68,10 @@ public class HomeFragment extends Fragment {
 
             Gson gson = new Gson();
             info = gson.fromJson(response, WeatherData.class);
-
             UpdateInfo(info);
+            MainActivity main = (MainActivity)getActivity();
+            assert main != null;
+            main.info = info;
         } catch (Exception e) {e.printStackTrace();}
 
     }

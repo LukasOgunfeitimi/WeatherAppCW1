@@ -35,7 +35,6 @@ public class BookmarkFragment extends Fragment {
         setButtonTexts();
         return currentView;
     }
-
     void storePre() {
         SharedPreferences sp = getActivity().getSharedPreferences(SHARED, Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
@@ -45,8 +44,6 @@ public class BookmarkFragment extends Fragment {
         }
         edit.apply();
     }
-
-
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -81,16 +78,13 @@ public class BookmarkFragment extends Fragment {
     }
     void setSearch(View view) {
         SearchView search = view.findViewById(R.id.bookmark_search);
-
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 Button button = FindButton(view);
                 button.setText(query);
                 return true;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;

@@ -18,6 +18,7 @@ public class WeatherColors {
             case "Light freezing rain":
             case "Heavy rain":
             case "Light rain shower":
+            case "Light rain":
                 return DarkBlue;
 
             case "Cloudy":

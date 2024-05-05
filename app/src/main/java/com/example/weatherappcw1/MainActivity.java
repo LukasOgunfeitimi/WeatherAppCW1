@@ -1,5 +1,7 @@
 package com.example.weatherappcw1;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     public String location = "auto:ip";
+    public WeatherData info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,5 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences sp = getSharedPreferences("PRE", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.clear();
+        editor.apply();
     }
+}

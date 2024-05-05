@@ -11,6 +11,10 @@ public class WeatherData {
         public String name;
         public String region;
         public String country;
+        public String lat;
+        public String lon;
+        public String tz_id;
+        public String localtime;
     }
 
     public static class CurrentData {
