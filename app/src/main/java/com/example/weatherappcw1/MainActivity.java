@@ -26,9 +26,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.weatherappcw1.databinding.ActivityMainBinding;
 
-/*
-Home Search Hourly 10day About
- */
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -37,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        SharedPreferences sp = getSharedPreferences("PRE", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.clear();
+        editor.apply();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -56,9 +56,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        SharedPreferences sp = getSharedPreferences("PRE", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.clear();
-        editor.apply();
     }
 }

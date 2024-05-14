@@ -35,6 +35,10 @@ public class BookmarkFragment extends Fragment {
         setButtonTexts();
         return currentView;
     }
+
+    /***
+     * Store the locations in the cache
+     */
     void storePre() {
         SharedPreferences sp = getActivity().getSharedPreferences(SHARED, Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
@@ -49,6 +53,11 @@ public class BookmarkFragment extends Fragment {
         super.onSaveInstanceState(outState);
         storePre();
     }
+
+    /***
+     * Set the buttons text to the locations
+     * from the cache
+     */
     void setButtonTexts() {
         SharedPreferences sp = getActivity().getSharedPreferences(SHARED, Context.MODE_PRIVATE);
         if (sp == null) return;
@@ -56,10 +65,14 @@ public class BookmarkFragment extends Fragment {
         String buttonText;
         for (int i = 0; i < ButtonIDs.length; i++) {
             button = currentView.findViewById(ButtonIDs[i]);
-            buttonText = sp.getString("bookmark" + i, "Bookmark " + i);
+            buttonText = sp.getString("bookmark" + i, "Bookmark " + (i + 1));
             button.setText(buttonText);
         }
     }
+    /***
+     * Return the locations of all the buttons
+     * @return String[]
+     */
     String[] getButtonTexts() {
         String[] texts = new String[5];
         Button button;
@@ -76,6 +89,13 @@ public class BookmarkFragment extends Fragment {
         setSearch(view);
         setButtons(view);
     }
+
+    /***
+     * Set the query listener for the text view
+     * when the user enters a location, push that
+     * location to the button's text
+     * @param view
+     */
     void setSearch(View view) {
         SearchView search = view.findViewById(R.id.bookmark_search);
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

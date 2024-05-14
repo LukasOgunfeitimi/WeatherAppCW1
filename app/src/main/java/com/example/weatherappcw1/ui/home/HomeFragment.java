@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
         HomeEntities = new HomeEntities(view);
         start();
 
+        //Toggle for Celsius and Fahrenheit
         Switch DegreeType = (Switch)view.findViewById(R.id.DegreeType);
         DegreeType.setOnCheckedChangeListener((buttonView, UseFahrenheit) -> {
             if (UseFahrenheit) HomeEntities.SetTemp(info.current.temp_f);
@@ -77,6 +78,7 @@ public class HomeFragment extends Fragment {
     }
 
     void UpdateInfo(WeatherData WeatherInfo) {
+        String date = new Date().toString();
         main.setBackgroundColor(WeatherColors.GetWeatherInHex(WeatherInfo.current.condition.text));
 
         HomeEntities.LocationCountry.setText(WeatherInfo.location.country);
@@ -84,7 +86,7 @@ public class HomeFragment extends Fragment {
         HomeEntities.LocationRegion.setText(WeatherInfo.location.region);
         HomeEntities.Temp.setText(Double.toString(WeatherInfo.current.temp_c) + "°");
         HomeEntities.Condition.setText(WeatherInfo.current.condition.text);
-        HomeEntities.TimeUpdate.setText(new Date().toString());
+        HomeEntities.TimeUpdate.setText(date.substring(0, date.length() - 15));
 
         String ExtraInfo = "";
         ExtraInfo += "Wind (MPH): " + WeatherInfo.current.wind_mph + "\n";

@@ -34,6 +34,12 @@ public class WeatherOperation extends AsyncTask<Void, Void, String> {
         }
 
     }
+
+    /***
+     * HTTP request to the Weather API
+     * return the body
+     * @return String
+     */
     @Override
     protected String doInBackground(Void... voids) {
         StringBuilder response = new StringBuilder();

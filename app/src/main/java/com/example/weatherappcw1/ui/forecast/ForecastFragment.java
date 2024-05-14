@@ -79,6 +79,9 @@ public class ForecastFragment extends Fragment {
             ForecastEntities.AllTextViews[i + 3].setText(averageTemp);
         }
     }
+
+    // The api doesn't return an ordinal date
+    // so create one using the day's number
     String getOrdinal(String data) {
         switch (data.charAt(data.length() - 1)) {
             case '1':
