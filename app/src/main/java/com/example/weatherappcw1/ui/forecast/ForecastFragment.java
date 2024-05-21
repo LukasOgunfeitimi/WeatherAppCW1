@@ -62,6 +62,7 @@ public class ForecastFragment extends Fragment {
         } catch (Exception e) {e.printStackTrace();}
     }
 
+    // Set up the page with the weahther information
     void updateInfo(WeatherData WeatherInfo) {
         WeatherData.ForecastDayData[] forecastdays = WeatherInfo.forecast.forecastday;
 

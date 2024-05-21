@@ -49,7 +49,6 @@ public class SearchFragment extends Fragment {
                 SearchForQuery(view, query);
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;

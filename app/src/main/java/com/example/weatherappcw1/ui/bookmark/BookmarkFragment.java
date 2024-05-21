@@ -129,6 +129,12 @@ public class BookmarkFragment extends Fragment {
         return view.findViewById(ButtonIDs[0]);
     }
 
+    /***
+     * Add the event listeners
+     * for bookmarks that have
+     * been set
+     * @param view
+     */
     void setButtons(View view) {
         Button button;
         for (int buttonID : ButtonIDs) {

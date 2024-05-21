@@ -64,12 +64,15 @@ public class HomeFragment extends Fragment {
         WeatherOperation WeatherOp = new WeatherOperation(query,1);
         WeatherOp.execute();
 
+        // Fetch weather information
         try {
             String response = WeatherOp.get();
 
             Gson gson = new Gson();
             info = gson.fromJson(response, WeatherData.class);
+
             UpdateInfo(info);
+
             MainActivity main = (MainActivity)getActivity();
             assert main != null;
             main.info = info;
@@ -77,6 +80,7 @@ public class HomeFragment extends Fragment {
 
     }
 
+    // Set up page with weather information
     void UpdateInfo(WeatherData WeatherInfo) {
         String date = new Date().toString();
         main.setBackgroundColor(WeatherColors.GetWeatherInHex(WeatherInfo.current.condition.text));
