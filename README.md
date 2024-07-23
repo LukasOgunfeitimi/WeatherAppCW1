@@ -1,6 +1,6 @@
 # WeatherApp
 
-WeatherApp is an Android application that displays weather information with dynamic gradient backgrounds representing different weather conditions such as sunny, cloudy, and rainy days.
+WeatherApp is an Android application for a university project that displays weather information with dynamic gradient backgrounds representing different weather conditions such as sunny, cloudy, and rainy days.
 
 ## Features
 
