@@ -26,7 +26,7 @@ WeatherApp is an Android application that displays weather information with dyna
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/weatherapp.git
+   git clone [https://github.com/yourusername/weatherapp.git](https://github.com/LukasOgunfeitimi/WeatherAppCW1.git)
 
 
 I had to make another repo because I was initally using a single page project when I should've have been using a multiple page project, So this is a continuation from [lukasXOR/MobileApp](https://github.com/lukasXOR/MobileApp)https://github.com/lukasXOR/MobileApp
