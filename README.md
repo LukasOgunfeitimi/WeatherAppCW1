@@ -12,9 +12,8 @@ WeatherApp is an Android application for a university project that displays weat
   - Rainy: Dark blue to light blue gradient
 - User-friendly interface
 
-## Screenshots
+## Demo
 
-<!-- Add screenshots of your app here -->
 ![](https://s5.ezgif.com/tmp/ezgif-5-43a69919e1.gif)
 
 ## Requirements
