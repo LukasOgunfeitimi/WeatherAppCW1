@@ -79,11 +79,10 @@ public class HomeFragment extends Fragment {
         } catch (Exception e) {e.printStackTrace();}
 
     }
-
     // Set up page with weather information
     void UpdateInfo(WeatherData WeatherInfo) {
         String date = new Date().toString();
-        main.setBackgroundColor(WeatherColors.GetWeatherInHex(WeatherInfo.current.condition.text));
+        main.setBackground(WeatherColors.GetWeatherInHex(WeatherInfo.current.condition.text));
 
         HomeEntities.LocationCountry.setText(WeatherInfo.location.country);
         HomeEntities.LocationName.setText(WeatherInfo.location.name);

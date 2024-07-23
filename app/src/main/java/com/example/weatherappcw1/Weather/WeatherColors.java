@@ -1,4 +1,6 @@
 package com.example.weatherappcw1.Weather;
+import android.graphics.drawable.GradientDrawable;
+
 public class WeatherColors {
     public static int LightYellow = 0xFFF7DC6F;
     public static int LightGray = 0xFF7F8C8D;
@@ -7,10 +9,10 @@ public class WeatherColors {
     /*
     Possible weather conditions https://www.weatherapi.com/docs/weather_conditions.json
      */
-    public static int GetWeatherInHex(String Weather) {
+    public static GradientDrawable GetWeatherInHex(String Weather) {
         switch (Weather) {
             case "Sunny":
-                return LightYellow;
+                return createGradient(0xFFFFD700, 0xFF87CEFA);
 
             case "Patchy rain possible":
             case "Moderate rain":
@@ -19,14 +21,22 @@ public class WeatherColors {
             case "Heavy rain":
             case "Light rain shower":
             case "Light rain":
-                return DarkBlue;
+                return createGradient(0xFF1E90FF, 0xFFADD8E6);
 
             case "Cloudy":
-            case "Partly cloudy":
+            case "Partly Cloudy":
             case "Overcast":
             case "Mist":
-                return LightGray;
+                return createGradient(0xFFB0C4DE, 0xFF696969);
         }
-        return 0xFFBFBFBF;
+        return createGradient(0x0, 0x0);
+    }
+
+    private static GradientDrawable createGradient(int from, int to) {
+        int[] colors = {from, to}; // Blue to Green
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM, colors);
+        gradientDrawable.setCornerRadius(0f);
+        return gradientDrawable;
     }
 }
