@@ -14,7 +14,7 @@ WeatherApp is an Android application for a university project that displays weat
 
 ## Demo
 
-<img src="https://github.com/user-attachments/assets/c40f1d6f-38d7-401e-b031-8d50c27f9761" width="400" height="790">
+<img src="https://github.com/user-attachments/assets/c40f1d6f-38d7-401e-b031-8d50c27f9761" width="500" height="600">
 
 ## Requirements
 
